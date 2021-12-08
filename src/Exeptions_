@@ -1,0 +1,49 @@
+package exceptions_;
+
+import java.io.IOException;
+import java.io.InterruptedIOException;
+import java.util.ArrayList;
+import java.util.List;
+
+//Виды Исключений 10 штук
+
+public class Example {
+    public static List<Exception> exceptions = new ArrayList<Exception>();
+
+    public static void main(String[] args) {
+        initExceptions();
+
+        for (Exception exception : exceptions) {
+            System.out.println(exception);
+        }
+    }
+
+    private static void initExceptions() {   //it's first exception
+        try {
+            float i = 1 / 0;
+
+        } catch (Exception e) {
+            exceptions.add(e);
+        }
+
+        //Add your code here
+
+        exceptions.add(new ArrayIndexOutOfBoundsException());
+        //  Оно возникает тогда, когда мы пытаемся обратиться к элементу массива
+        //  по отрицательному или превышающему размер массива индексу
+
+        exceptions.add(new IllegalArgumentException());
+//Это исключение самое простое, его легко понять, найти его причину и исправить.
+// Оно случается когда JVM пытается передать методу неподходящий аргумент или аргумент неправильного типа.
+
+        exceptions.add(new IllegalAccessException());
+
+        exceptions.add(new NumberFormatException());
+        exceptions.add(new ClassCastException());
+        exceptions.add(new IOException());
+        exceptions.add(new InterruptedIOException());
+        exceptions.add(new InterruptedException());
+        exceptions.add(new SecurityException());
+    }
+}
+
